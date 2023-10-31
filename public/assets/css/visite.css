@@ -1,0 +1,94 @@
+.arrow-down {
+    text-align: center;
+    margin: 50px;
+}
+
+
+.image-container ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+#scroll-button {
+    display: block;
+    font-size: 40px;
+    text-decoration: none;
+    border-radius: 20px;
+    padding: 10px;
+
+    color: white;
+    transition: color 0.3s;
+}
+
+#scroll-button:hover {
+    background-color: #d18f15;
+}
+
+.card-img {
+    height: 900px;
+
+}
+
+.arrow-down button {
+    display: block;
+    margin: 0 auto;
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#image-container {
+    display: none;
+}
+
+.image-container ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: block;
+    /* background-color: #d18f15; */
+    justify-content: center;
+
+}
+
+
+.image-container ul li {
+    display: flex;
+    margin: 20px;
+    /* background-color: aqua; */
+    justify-content: center;
+
+
+}
+
+
+
+ul li {
+
+    list-style: none;
+
+
+}
+
+.img {
+    width: 600px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#scroll-button {
+    background-color: #E0B973;
+
+
+}
+
+.li {
+    cursor: pointer;
+}

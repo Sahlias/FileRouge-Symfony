@@ -1,0 +1,47 @@
+menu:
+    choose_language: 'Choisissez la langue'
+    english: 'AN'
+    french: 'FR'
+
+welcome:
+    title1: 'BIENVENUE À'
+    title2: 'VICE CITY'
+    title3: 'HÔTEL'
+    description: 'Réservez votre séjour et découvrez le luxe redéfini à des tarifs abordables.'
+
+navbar:
+    connexion: 'Se connecter'
+    contact: 'Contactez-nous'
+    hebergement : 'Hébergement'
+    chambre1: 'Chambre Double Deluxe'
+    chambre2: 'Chambre Double Supérieure'
+    chambre3: 'Suite Junior'
+    visite: "Visiter l'hôtel"
+    reservation: 'Mes réservations'
+    admin: 'Bonjour Admin'
+    user: 'Bonjour'
+    profil: 'Gérer mon profil'
+    deconnexion: 'Déconnexion'
+
+creation:
+    titre: 'Création du Vice City Hotel'
+    texte: "Un hotel de luxe née de l'audace et de la vision de ses fondateurs éminents : Akaza, Batman, Elcroco et
+        Karim. Fondé en 2023, cet établissement incarne l'alliance parfaite entre l'élégance contemporaine et le
+      glamour intemporel. Les influences uniques de chaque fondateur se reflètent dans chaque recoin, créant une
+      atmosphère distinctive qui redéfinit l'expérience hôtelière. Que vous soyez attiré par le style avant-gardiste
+      d'Akaza, la sophistication de Batman, l'excentricité d'Elcroco ou la chaleur accueillante de Karim, le Vice City
+      Hotel offre une escapade inoubliable, où le luxe rencontre l'individualité. Chaque détail, de l'architecture à la
+      cuisine, est une célébration de l'innovation et du raffinement, promettant à chaque invité une expérience
+      d'exception au cœur de la ville. Bienvenue dans le monde exclusif du Vice City Hotel, où le confort, le style et
+      la personnalité se rencontrent pour créer une destination inégalée."
+
+
+caroussel:
+    titre1: 'Nos chambres sont conçues pour transporter vous dans un environnement fait pour les loisirs. Ne pensez plus au quotidien à la maison vie et trouvez un paradis privé pour vous-même'
+    titre2: 'Tous nos types de chambres comprennent le petit-déjeuner gratuit.'
+
+
+footer:
+    titre1: 'Notre hôtel combine élégance intemporelle, commodités modernes et un service exceptionnel pour créer une atmosphère accueillante et apaisante.'
+    copyright: '© 2023 Vice city Hôtel. Tous droits réservés.'
+

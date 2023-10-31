@@ -1,0 +1,101 @@
+{# PARTIE CREATION DE L'HOTEL #}
+
+<div class="conteneurHistoireViceCity">
+
+  <div class="photo">
+    <img src="img/reception_vice_city.jpg" alt="receptionVCH">
+  </div>
+
+  <div class="texte">
+
+    <p style="font-size: 20px;">{{'creation.titre'|trans }}</p>
+
+    <p>{{'creation.texte'|trans }}</p>
+
+  </div>
+
+</div>
+
+
+{# PARTIE CAROUSSEL #}
+
+<div class="caroussel">
+
+  <div class="titrecaroussel">
+    <h2>Decouvrez nos chambres</h2>
+  </div>
+
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+
+    <div class="carousel-inner">
+
+      <div class="carousel-item active">
+        <a href="/deluxe"><img src="img/chambre.png" class="d-block w-100" alt="chambreDeluxe"></a>
+        <h2 class="titr">Chambre Deluxe</h2>
+        <p class="para">{{ 'caroussel.titre1'|trans }}</p>
+      </div>
+
+      <div class="carousel-item">
+        <a href="/superieure"><img src="img/chambre1.png" class="d-block w-100" alt="chambreSuperieure"></a>
+        <h2 class="titr">Chambre Superieure</h2>
+        <p class="para">{{ 'caroussel.titre1'|trans }}</p>
+      </div>
+
+
+      <div class="carousel-item">
+        <a href="/junior"><img src="img/chambre2.png" class="d-block w-100" alt="SuiteJunior"></a>
+        <h2 class="titr">Suite Junior</h2>
+        <p class="para">{{ 'caroussel.titre1'|trans }}</p>
+      </div>
+
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+
+    <p class="poi">{{ 'caroussel.titre2'|trans }}</p>
+
+    {# <div class="azer">
+      <button class="btna">EXPLORATION</button>
+    </div> #}
+
+  </div>
+
+</div>
+
+
+{# PARTIE GOOGLE MAPS #}
+
+<div class="localisationVCH">
+
+  <div class="titrePosition">
+    <h2>Notre position</h2>
+  </div>
+
+  <div class="conteneurMaps">
+
+    <div class="maps">
+      <ul>
+        <li>Vice City Hotel</li>
+        <li>123 Ocean Boulevard</li>
+        <li>Miami, FL 33123</li>
+        <li>USA</li>
+      </ul>
+
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114964.39567728035!2d-80.31186043936601!3d25.782538873740435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b0a20ec8c111%3A0xff96f271ddad4f65!2sMiami%2C%20Floride%2C%20%C3%89tats-Unis!5e0!3m2!1sfr!2sfr!4v1696860777324!5m2!1sfr!2sfr"
+        width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+    </div>
+
+  </div>
+
+</div>

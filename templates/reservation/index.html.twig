@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Reservations{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="/assets/css/mesreservations.css">
+{% endblock %}
+
+{% block body %}
+
+<div class="reservationChoix">
+
+    <div class="mareservation">
+        <h2><a href="{{ path('reservation') }}">Ma reservation</a></h2>
+    </div>
+
+    <div class="mesreservations">
+        <h2><a href="{{ path('app_reservation_index') }}">Mes reservations</h2></a>
+    </div>
+
+</div>
+
+
+<h1 id='titreReservation'>Mes Réservations</h1>
+
+
+<div class="conteneur">
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Date de Réservation</th>
+                <th>Date d'Entrée</th>
+                <th>Date de Sortie</th>
+                <th>N° Chambre</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+ 
+
+        <tbody>
+            {% for reservation in reservations %}
+                <tr>
+                    <td>{{ reservation.id }}</td>
+                    <td>{{ reservation.dateReservation|date('d-m-Y') }}</td>
+                    <td>{{ reservation.dateEntree|date('d-m-Y') }}</td>
+                    <td>{{ reservation.dateSortie|date('d-m-Y') }}</td>
+                    <td>{{ reservation.chambre.id}}</td>
+                    <td><a href="{{ path('app_reservation_crud_test_delete', {'id': reservation.id}) }}" class="btn btn-outline-danger"><b>Annuler ma reservation</b></a></td>
+                </tr>
+            {% else %}
+                <tr>
+                    {# colspan="6": signifie que cette cellule va s'étendre sur 6 colonnes. #}
+                    <td colspan="6" style="text-align: center;">
+                        <h6 style="color:red" > Vous n'avez aucune(s) reservation(s) ❌</h6>
+                    </td>
+                </tr>
+            {% endfor %}
+      
+
+</table>
+
+</div>
+
+
+
+{% endblock %}
+
+

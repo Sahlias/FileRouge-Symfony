@@ -1,0 +1,253 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chiffre d'Affaires{% endblock %}
+
+{% block body %}
+<style>
+  body {
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    background: #cecece;
+  }
+
+  h1 {
+    font-size: 60px;
+    color: #505050;
+    letter-spacing: 2px;
+    margin: 25px 0;
+    text-align: center;
+  }
+
+  {# p {
+
+    font-size: 35px;
+    color: #505050;
+    letter-spacing: 2px;
+
+    box-shadow: #E0B973;
+    margin: 25px 0;
+    border-radius: 4px;
+  } #}
+
+
+  body {
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    background: #cecece;
+  }
+
+  h1 {
+    font-size: 60px;
+    color: #505050;
+    letter-spacing: 2px;
+    margin: 25px 0;
+    text-align: center;
+  }
+
+  .charts {
+    width: 800px;
+    position: relative;
+  }
+
+  .mtd {
+    display: inline-block;
+    margin: 10px 20px;
+  }
+
+  #doughnut {
+    width: 100%;
+    height: 100%;
+  }
+
+  ul.doughnut-legend {
+    margin-left: 0;
+    height: 40px;
+  }
+
+  .chart-legend {
+    margin-top: 40px;
+  }
+
+  .chart-legend li {
+    display: inline-block;
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-right: 20px;
+  }
+
+  .chart-legend li span {
+    display: inline-block;
+    position: relative;
+    width: 26px;
+    height: 22px;
+    top: 4px;
+    margin-right: 8px;
+  }
+
+  #chartjs-tooltip {
+    opacity: 1;
+    position: absolute;
+    background: none;
+    color: #FFFFFF;
+    font-size: 40px;
+    padding: 3px;
+  }
+
+  #chartjs-tooltip.below {
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
+
+  #chartjs-tooltip.below:before {
+    border: solid;
+    border-color: #111 transparent;
+    border-color: rgba(255, 255, 255, .8) transparent;
+    border-width: 0 8px 8px 8px;
+    bottom: 1em;
+    content: "";
+    display: block;
+    left: 50%;
+    position: absolute;
+    z-index: 99;
+    -webkit-transform: translate(-50%, -100%);
+    transform: translate(-50%, -100%);
+  }
+
+  #chartjs-tooltip.above {
+    -webkit-transform: translate(-50%, -100%);
+    transform: translate(-50%, -100%);
+  }
+
+  #chartjs-tooltip.above:before {
+    border: solid;
+    border-color: #111 transparent;
+    border-color: rgba(255, 255, 255, .8) transparent;
+    border-width: 8px 8px 0 8px;
+    bottom: 1em;
+    content: "";
+    display: block;
+    left: 50%;
+    top: 100%;
+    position: absolute;
+    z-index: 99;
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
+
+  
+
+  #MTO {
+    background-color: #E0B973;
+    border-color: #111;
+    color: #111;
+    font-size: 24px;
+
+
+  }
+
+  #MTO:hover {
+    background-color: #ee901dfa;
+  }
+
+  .Post {
+    box-shadow: 15px 15px 15px 20px #dfe8ed;
+  }
+</style>
+
+<div class="mtd charts">
+  <h1 class="example-wrapper">Chiffre d'Affaires</h1>
+
+
+  <h2>Période analysée</h2>
+  <form method="POST" class="Post">
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button type="submit" class="btn btn-primary" id="MTO">Valider</button>
+    {{ form_end(form) }}
+  </form>
+
+  <div>
+    <canvas id="myChart"></canvas>
+  </div>
+  <div id="chartjs-tooltip"></div>
+  <div id="doughnut-legend" class="chart-legend"></div>
+ 
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<script>
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var chiffreDaffaireForMonths = {{ chiffreDaffaireForMonths | json_encode | raw
+  }};
+  //recuperer lannee et le mois les mettre dans une variable
+  var labels = chiffreDaffaireForMonths.map(function (data) {
+    return data.annee + '-' + data.mois;
+  });
+  //recuperer le chiffre et le mettre dans une variable
+  var datasetValues = chiffreDaffaireForMonths.map(function (data) {
+    return parseFloat(data.chiffre);
+  });
+
+
+  var affaire = document.getElementById('myChart').getContext('2d');
+
+  var chart = new Chart(affaire, {
+    type: 'bar',//(bar, line, pie,doughnut, etc.)
+    data: {
+      labels: labels,
+
+      datasets: [{
+        label: 'Chiffre d\'Affaires en euros',
+        data: datasetValues,
+        backgroundColor: '#E0B973',
+        borderWidth: 100,
+        borderColor: 'black',
+        color: '#FFFFFF',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      plugins: {
+        legend: {
+          position: 'top',
+        },
+
+        tooltip: {
+          callbacks: {
+            label: function (context) {
+              var label = context.dataset.label || '';
+              if (label) {
+                label += ': ';
+              }
+              label += context.parsed.toFixed(2);
+              label += ' %';
+              return label;
+            },
+          },
+        },
+      },
+
+      title: {
+        display: true,
+        text: 'Répartition du Chiffre d\'Affaires',
+      },
+      animation: {
+        animateScale: true,
+      },
+      responsive: true,
+
+
+
+      layout: {
+        padding: 20
+      }
+    },
+  });
+
+  });
+
+</script>
+{% endblock %}

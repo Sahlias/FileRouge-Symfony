@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LibreChambreController!{% endblock %}
+
+{% block body %}
+<h1>Liste des Chambres Libres</h1>
+
+<p style="font-size: 20px; color: darkblue; font-weight: bold; font-family: Arial, sans-serif;">Nombre de chambres
+    libres : {{ nbrChmabres }} </p>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">numero de la chambre</th>
+            <th scope="col">Tarif</th>
+            <th scope="col">Superficie</th>
+            <th scope="col">Catégorie</th>
+            <th scope="col">État</th>
+            {# <th scope="col">vue sur mer</th> #}
+
+        </tr>
+    </thead>
+    <tbody>
+        {% for chambre in chambresLibres %}
+        <tr>
+            <th scope="row">{{ chambre.id }}</th>
+            <td>{{ chambre.tarif }} euros</td>
+            <td>{{ chambre.superficie }}</td>
+
+            <td>{{ chambre.categorie.libelle }}</td>
+            <td>{{ chambre.etat ? 'Libre' : 'Occupée' }}</td>
+            {# <td> {% if chambre.vueSurMer %}Oui{% else %}Non{% endif %}</td> #}
+        </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+{% endblock %}
+

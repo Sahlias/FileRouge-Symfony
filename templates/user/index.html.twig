@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+ 
+{% block title %}Profil{% endblock %}
+
+
+{% block stylesheets %}
+<link rel="stylesheet" href="/assets/css/profil.css">
+{% endblock %}
+
+ 
+
+{% block body %}
+
+<div class="conteneur">
+
+    <div class="bloc-profil">
+
+        {% if app.user %}
+
+        <div class="en-tete">
+
+            <h1 id="titre">{{ app.user.nom }} {{ app.user.prenom }}</h1>
+
+            <div class="photo-profil">
+                <img src="/img/id-card-regular.svg" alt="photo_profil" />
+            </div>
+
+        </div>
+
+
+        <div class="user-infos">
+
+            <ul>
+                <li>Email:</li>
+                <li>{{ app.user.email }}</li>
+            </ul>
+
+            <ul>
+                <li>Adresse:</li>
+                <li>{{ app.user.adresse }}</li>
+            </ul>
+
+            <ul>
+                <li>Numéro de téléphone</li>
+                <li>{{ app.user.telephone}}</li>
+            </ul>
+
+            <ul>
+                <li>Date de naissance</li>
+                <li>{{ app.user.dateDeNaissance|date('d-m-Y')}}</li>
+            </ul>
+
+        </div>
+
+        <div class="actions">
+            {# <a href="{{ path('app_user_show', {'id': app.user.id}) }}" class="btn btn-black">Show</a> #}
+            <a href="{{ path('app_user_edit', {'id': app.user.id}) }}" class="btn btn-custom"><b>Modifier votre profil</b></a>
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reservation{% endblock %}
+
+
+{% block stylesheets %}
+<link rel="stylesheet" href="/assets/css/annulerReservation.css">
+{% endblock %}
+
+
+{% block body %}
+
+<div class='blocTable'>
+
+    <div class="tableAnnuler">
+
+        <h1>Reservation n° {{ reservation.id }} </h1>
+
+            <ul>
+                <li>Date de reservation:</th>
+                <li>{{ reservation.DateReservation ? reservation.DateReservation|date('d-m-Y') : '' }}</td>
+            </ul>
+
+            <ul>
+                <li>Date d'entree:</th>
+                <li>{{ reservation.DateEntree ? reservation.DateEntree|date('d-m-Y') : '' }}</td>
+            </ul>
+
+            <ul>
+                <li>Date de sortie:</th>
+                <li>{{ reservation.DateSortie ? reservation.DateSortie|date('d-m-Y') : '' }}</td>
+            </ul>
+
+    
+            {{ include('reservation_crud_test/_delete_form.html.twig') }}
+    
+    </div>
+
+    {# <a href="{{ path('app_reservation_crud_test_index') }}">back to list</a> #}
+
+    {# <a href="{{ path('app_reservation_crud_test_edit', {'id': reservation.id}) }}">edit</a> #}
+
+</div>   
+
+{% endblock %}

@@ -1,0 +1,31 @@
+services:
+    Symfony\Component\HttpFoundation\Session\Storage\SessionStorageInterface: '@session.storage.native'
+    # Symfony\Contracts\Translation\TranslatorInterface: '@translator'
+
+    App\EventSubscriber\LocaleSubscriber:
+        arguments:
+            $defaultLocale: 'fr'
+            $session: '@session'
+        tags:
+            - { name: 'kernel.event_subscriber' }
+
+    # Default configuration for services in *this* file
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    # makes classes in src/ available to be used as services
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            # - '../src/Entity/'
+            - '../src/Kernel.php'
+
+# Paramètres de l'application
+parameters:
+    locale: 'fr' # définition de la locale(langue) par défaut
+    app_secret: '%env(APP_SECRET)%'
+    # app_locales: ['fr', 'en'] # indiquer les locales(langues) prises en charge par l'application
+    # supported_locales: '%env(SUPPORTED_LOCALES)%'  # permet de définir les langues qui seront suportées par l'appli, voir fichier '.env'

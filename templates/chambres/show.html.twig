@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chambre{% endblock %}
+
+{% block body %}
+    <h1>Chambre</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ chambre.id }}</td>
+            </tr>
+            <tr>
+                <th>Tarif</th>
+                <td>{{ chambre.tarif }}</td>
+            </tr>
+            <tr>
+                <th>Superficie</th>
+                <td>{{ chambre.superficie }}</td>
+            </tr>
+            <tr>
+                <th>VueSurMer</th>
+                <td>{{ chambre.vueSurMer }}</td>
+            </tr>
+            <tr>
+                <th>Chaine_a_laCarte</th>
+                <td>{{ chambre.ChaineaLaCarte }}</td>
+            </tr>
+            <tr>
+                <th>Climatisation</th>
+                <td>{{ chambre.climatisation }}</td>
+            </tr>
+            <tr>
+                <th>Television_a_ecranPlat</th>
+                <td>{{ chambre.televisionaEcranPlat }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ chambre.telephone }}</td>
+            </tr>
+            <tr>
+                <th>ChainesSatellite</th>
+                <td>{{ chambre.chainesSatellite }}</td>
+            </tr>
+            <tr>
+                <th>ChainesDuCable</th>
+                <td>{{ chambre.chainesDuCable }}</td>
+            </tr>
+            <tr>
+                <th>CoffreFort</th>
+                <td>{{ chambre.coffreFort }}</td>
+            </tr>
+            <tr>
+                <th>MaterielDeRepassage</th>
+                <td>{{ chambre.materielDeRepassage }}</td>
+            </tr>
+            <tr>
+                <th>WifiGratuit</th>
+                <td>{{ chambre.wifiGratuit }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ chambre.etat ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Libelle</th>
+                <td>{{ chambre.libelle }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_chambres_index') }}">back to list</a>
+
+    <a href="{{ path('app_chambres_edit', {'id': chambre.id}) }}">edit</a>
+
+    {{ include('chambres/_delete_form.html.twig') }}
+{% endblock %}

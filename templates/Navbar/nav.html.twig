@@ -1,0 +1,127 @@
+{% block title %}{% endblock %}
+
+{% block body %}
+
+<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/"><img src="/img/VCH-removebg-preview_1.png" alt=""></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02"
+      aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false" href="#">{{ 'navbar.hebergement'|trans }}</a>
+          <div class="dropdown-menu">
+
+
+            <a class="  dropdown-item" href="/deluxe">{{ 'navbar.chambre1'|trans }}</a>
+            <a class="  dropdown-item" href="/superieure">{{ 'navbar.chambre2'|trans }}</a>
+            <a class="  dropdown-item" href="/junior">{{ 'navbar.chambre3'|trans }}</a>
+
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" href="/vister/lhotel">{{ 'navbar.visite'|trans }}</a>
+        </li>
+
+      </ul>
+      <ul class="navbar-nav">
+
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" id="locales">
+            <img class="bl" src="/img/Vector (8).png" alt="">
+            <span class="caret"></span>
+            <span class="sr-only">{{ 'menu.choose_language'|trans }}</span>
+          </a>
+
+          <div class="dropdown-menu" aria-labelledby="locales" id="blocLangue">
+
+            <div class="divGB">
+
+              <div class="lienLangue">
+                <a class="dropdown-item" id='lienLangague'
+                  href="{{ path('app_traduction', {'_locale': 'en'}) }}">{{'menu.english'|trans }}</a>
+              </div>
+
+              <div class="photoLangue">
+                <img class="bl" src="/img/england-150397_1280.png" id='GB' alt="GB">
+              </div>
+
+            </div>
+
+            <div class="divFR">
+
+              <div class="lienLangue">
+                <a class="dropdown-item" id='lienLangague'
+                  href="{{ path('app_traduction', {'_locale': 'fr'}) }}">{{'menu.french'|trans }}</a>
+              </div>
+
+              <div class="photoLangue">
+                <img class="bl" src="/img/drapeau_fr.png" id='FR' alt="FR">
+              </div>
+
+            </div>
+
+        </li>
+
+
+        {% if is_granted('ROLE_ADMIN') %}
+        <li class="nav-item">
+          <a class="nav-link active" href="/admin/dashboard"><img class="bl" src="/img/Vector (2).png" alt="">Admin</a>
+
+          {% endif %}
+
+
+          {% if not app.user %}
+        <li class="nav-item dropdown">
+          <a class="nav-link active " href="/login"><img class="bl" src="/img/Vector.png" alt="">{{
+            'navbar.connexion'|trans }}</a>
+        </li>
+        {% else %}
+        <li class="nav-item dropdown">
+          {% if 'ROLE_ADMIN' in app.user.roles %}
+          <a class="nav-link active dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false" href="/login">
+            <img class="bl" src="/img/Vector.png" alt="">{{ 'navbar.admin'|trans }}
+          </a>
+          {% else %}
+          <a class="nav-link active dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false" href="/login">
+            <img class="bl" src="/img/Vector.png" alt=""> {{ 'navbar.user'|trans }} {{ app.user.prenom }}
+          </a>
+          {% endif %}
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/user">{{ 'navbar.profil'|trans }}</a>
+            <a class="dropdown-item" href="/logout" style="color:red">{{ 'navbar.deconnexion'|trans }} ❌</a>
+          </div>
+        </li>
+        {% endif %}
+
+
+        {% if not app.user %}
+        <li class="nav-item">
+          <a class="nav-link active" href="/contact"><img src="/img/Vector (3).png" alt="">{{ 'navbar.contact'|trans
+            }}</a>
+        </li>
+        {% elseif is_granted('ROLE_USER') %}
+        <li class="nav-item">
+          {% if 'ROLE_ADMIN' not in app.user.roles %}
+          <a class="nav-link active" href="/cart"><img class="bl" src="/img/Vector (1).png" alt="">{{
+            'navbar.reservation'|trans }}</a>
+
+          {% endif %}
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+
+</nav>
+
+
+{% endblock %}

@@ -1,0 +1,199 @@
+{% extends 'base.html.twig' %}
+
+  
+ 
+{% block title %}Connexion{% endblock %}
+ 
+
+
+
+{% block body %}
+
+<style>
+    .blocFormulaireInscription {
+        display: flex;
+        padding: 100px;
+        justify-content: center;
+
+    }
+
+    .blocInscriptionConnexion {
+
+        display: flex;
+        padding: 20px;
+        border: solid black 2px;
+        background-color: black;
+    }
+
+    .formulaire_Inscription {
+        display: inline-block;
+        padding: 40px;
+        border-radius: 30px;
+        border: solid #E0B973 10px;
+        background-color: black;
+        width: 50%;
+    }
+
+    .form {
+        display: inline-block;
+        padding: 50px;
+        color: white;
+        background-color: black;
+        border: solid black 2px;
+        width: 100%;
+    }
+
+    .blocInscription {
+        display: flex;
+        justify-content: center;
+        color: white;
+        padding: 30px;
+        border-bottom: solid #E0B973 3px;
+        border-right: solid #E0B973 3px;
+        width: 50%;
+    }
+
+    .blocConnexion {
+        display: flex;
+        justify-content: center;
+        color: white;
+        padding: 30px;
+        border-bottom: solid #E0B973 3px;
+        border-left: solid #E0B973 3px;
+        width: 50%;
+    }
+
+    .mdp {
+
+        text-align: center;
+        margin: 30px;
+
+
+
+    }
+
+    .boutonConnexion {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    #btnConnexion {
+
+        border: solid #E0B973;
+        color: black;
+        font-weight: bold;
+        background-color: #E0B973;
+        border-radius: 5px;
+        padding: 10px;
+        width: 50%;
+    }
+
+    .googleAUTH {
+
+        display: flex;
+        justify-content: center;
+        border: solid #E0B973;
+    }
+
+</style>
+
+<form method="post">
+
+ 
+    {# {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %} #}
+
+    {# {% if app.user %}
+        <div class="mb-3">
+            Bonjour, {{ app.user.userIdentifier }}! <a href="{{ path('app_logout') }}">Deconnexion</a>
+        </div>
+    {% endif %} #}
+ 
+    {% if error %}
+    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+    <div class="mb-3">
+        Bonjour, {{ app.user.userIdentifier }}! <a href="{{ path('app_logout') }}">Deconnexion</a>
+    </div>
+    {% endif %}
+
+ 
+<div class="blocFormulaireInscription">
+ 
+
+        <div class='formulaire_Inscription'>
+
+
+            
+            <div class="blocInscriptionConnexion">
+
+                <div class="blocInscription">
+                    <h4><a class="nav-link active" aria-current="page" href="{{ path('app_register') }}">INSCRIPTION</a></h4>
+                </div>
+
+                <div class="blocConnexion">
+                    <h4><a class="nav-link active" aria-current="page" href="{{ path('app_login') }}">CONNEXION</a></h4>
+                </div>
+
+            </div>
+
+
+
+            <div class='form' id="formulaireConnexion">
+
+                <label for="inputEmail">Email</label>
+                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+
+
+                <label for="inputPassword">Mot de passe</label>
+                <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+
+
+                <div class="mdp">
+                    <h6><a class="nav-link active" aria-current="page" href="/reset-password">Mot de passe oublié ?</a></h6>
+                </div>
+
+
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+
+                <div class="boutonConnexion">
+                    <button type="submit" id="btnConnexion"> CONNEXION </button>
+                </div>
+
+
+                <div class="googleAUTH">
+                    <a class="nav-link active" href="{{ path('connect_google') }}"><img  src="/img/LogoGoogleAuth.png" style=' width:30px; 'alt="LogoGoogleAUTH">Google connexion</a>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    {% if error %}
+    <div class="alert alert-danger">
+        {% if error.messageKey == 'Invalid credentials.' %}
+            Adresse e-mail ou mot de passe incorrect.
+        {% else %}
+            {{ error.messageKey|trans(error.messageData, 'security') }}
+        {% endif %}
+    </div>
+{% endif %}
+
+    </div>
+
+
+
+
+</form>
+
+{% endblock %}

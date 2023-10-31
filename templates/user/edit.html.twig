@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier votre profil{% endblock %}
+
+
+{% block stylesheets %}
+<link rel="stylesheet" href="/assets/css/modifierProfil.css">
+{% endblock %}
+
+
+{% block body %}
+
+<div class="container-principal">
+
+    <div class="container">
+
+        <div class="en-tete">
+            <h1 id="titreProfil">Modifier votre profil</h1>
+        </div>
+
+
+        {{ form_start(registrationForm) }}
+
+
+        {{form_label(registrationForm.email) }}
+        {{form_widget(registrationForm.email) }}
+        {{ form_errors(registrationForm.email) }}
+
+
+        {{form_label(registrationForm.password) }}
+        {{form_widget(registrationForm.password) }}
+        {{ form_errors(registrationForm.password) }}
+
+
+        {{form_label(registrationForm.adresse) }}
+        {{form_widget(registrationForm.adresse, {'attr': {'placeholder': 'Votre contenu ici'}}) }}
+        {{ form_errors(registrationForm.adresse) }}
+        <ul id="liste_adresse"></ul>
+
+
+        {{form_label(registrationForm.telephone) }}
+        {{form_widget(registrationForm.telephone, {'attr': {'placeholder': 'Votre contenu ici'}}) }}
+        {{ form_errors(registrationForm.telephone) }}
+
+        <button class="btn btn-success" id="btn-enregistrement">{{ button_label|default('Enregistrer les modifications') }}</button>
+
+        {{ form_end(registrationForm) }}
+
+
+        <div class="actions">
+            <a href="{{ path('app_user_index') }}" class="back-button">Retour</a>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="{{asset('assets/js/apiModifierProfil.js')}}"></script>
+
+{% endblock %}

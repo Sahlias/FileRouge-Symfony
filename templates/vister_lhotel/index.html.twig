@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Visiter l'hotel{% endblock %}
+
+
+{% block javascripts %}
+{{ parent() }}
+<script src="{{asset('assets/js/main.js')}}"></script>
+{% endblock %}
+
+{% block body %}
+
+{% block stylesheets %}
+{{ parent() }}
+ <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}"> 
+<link rel="stylesheet" href="{{ asset('assets/css/visite.css')}}">
+ <link rel="stylesheet" href="{{ asset('assets/css/card.css')}}">
+{% endblock %}
+
+
+{% include ('vister_lhotel/visite.html.twig')%}
+
+
+
+
+{% endblock %}

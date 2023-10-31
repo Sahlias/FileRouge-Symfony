@@ -1,0 +1,46 @@
+
+.localisationVCH {
+    display: block;
+    /* border: solid black 2px; */
+  }
+
+
+  .titrePosition {
+    border-bottom: solid #E0B973 2px;
+    text-align: center;
+    margin-bottom: 100px;
+    color: #E0B973;
+    max-width: 50%;
+    margin-left: 50%; /* Ajustez la valeur selon vos besoins */
+}
+
+  .conteneurMaps{
+    display:flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    
+  }
+
+  .maps {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .localisationVCH ul {
+    list-style-type: none;
+    margin-right: 50px;
+    font-weight: bold;
+  }
+  
+  .localisationVCH li {
+    margin-bottom: 10px;
+  }
+ 
+
+  iframe{
+    margin-left: 50px;
+    width: 500px;
+    height: 400px;
+  }

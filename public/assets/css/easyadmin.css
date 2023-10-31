@@ -1,0 +1,36 @@
+/* Changer la couleur de fond des champs de texte */
+.easyadmin-field-text input {
+    background-color: #f0f0f0;
+}
+
+/* Changer la couleur du texte des champs de texte */
+.easyadmin-field-text input {
+    color: #333;
+}
+
+/* Changer la taille de la police des champs de texte */
+.easyadmin-field-text input {
+    font-size: 16px;
+}
+
+.fa {
+    color: #007bff;
+}
+/* Changer la couleur de fond de l'en-tête de la page */
+.navbar {
+    background-color: #E0B973;
+}
+
+/* Changer la couleur du texte des titres */
+.content-title {
+    color: blue;
+}
+/* Changer la couleur de fond des boutons */
+.btn {
+    background-color: #007bff;
+}
+
+/* Changer la couleur du texte des boutons */
+.btn {
+    color: #fff;
+}

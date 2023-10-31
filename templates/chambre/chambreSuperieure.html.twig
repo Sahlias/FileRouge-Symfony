@@ -1,0 +1,118 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chambre Double Supérieure{% endblock %}
+
+
+{% block stylesheets %}
+
+<link rel="stylesheet" href="/assets/css/chambre.css">
+
+
+{% endblock %}
+
+
+{% block body %}
+
+
+<h1 id='titrePrincipal'>Chambres Double Supérieure</h1>
+<h6 id="descriptionPage">Découvrez l'élégance et le confort dans notre chambre double supérieure, idéale pour les voyageurs en quête d'un espace spacieux et raffiné.</h6>
+
+<div class="conteneur">
+
+    <ul id="listeChambre">
+
+
+        {# chambre = clé #}
+        {# chambres = 'chambres' dans le render qui contient la variable $chambres #}
+        {% for chambre in chambres %}
+
+        <div class="photo">
+
+
+            {# génère une image aléatoire contenu dans le tableau #}
+            {% set image = random(images) %}
+            {# {{ dump(image) }} #}
+
+            {# ~ concatenation #}
+            <img src="{{ asset('./image/' ~ image) }}" alt="photo" style="width: 100%; height: auto;">
+
+            <h1 id="titre">{{chambre.libelle}}</h1>
+
+            
+            <div class="detailsEtreserver">
+
+            {# lors du click on va faire appel à la fonction avec en parametre l'id de la chambre #}
+            <button type="button" id="button" onclick="afficherDetails('{{ chambre.Id }}')"><img src="./img/bouton +.png" alt="bouton+" id="imageButton"> Afficher les détails de la chambre</button>
+            
+            {# condition si l'utilisateur est connecté alors renvoi vers la page panier #}
+            {# is_granted: vérifier si un certain accès (une autorisation) est accordé à l'utilisateur actuel dans l'application. #}
+            {# "ROLE_USER" : vérifier si l'utilisateur actuel possède le rôle "ROLE_USER" #}
+            {% if is_granted('ROLE_USER') %}
+            
+            {# bouton pour reserver avec en paremetre l'id de la chambre #}
+            <a href="{{ path('cart_add', {'id': chambre.Id}) }}" class="btn btn-outline-warning"><b>Réserver</b></a>
+    
+            {# s'il n'est pas connecté alors renvoi vers la page login #}
+            {% else %}
+ 
+            <a href="/login" class="btn btn-outline-warning"><b>Réserver</b></a>
+ 
+            {% endif %}
+
+            </div>
+
+            <ul id="details">
+
+                    {# Pour chaque tour de boucle, la div va prendre comme id le numero id de la chambre #}
+                    <div class="descriptionChambre" id="description-{{ chambre.Id }}" >
+
+                        <h6>N° ID de chambre : {{chambre.Id}}</h6>
+                        <p>Superficie : {{chambre.Superficie}}</p>
+                        <p>Tarif : {{chambre.tarif}} € / nuit(s)</p>
+                        <p>Etat : {{ chambre.etat ? 'Libre' : 'Occupée' }}</p>
+
+                        {% for categorie in categories %}
+
+                        {% if categorie.libelle == 'Chambre double superieure'%}
+                        <p>Type de chambre: {{categorie.libelle}}</p>
+                        {% endif %}
+
+                        {% endfor %}
+
+                    </div>
+
+
+                    {# Pour chaque tour de boucle, la div va prendre comme id le numero id de la chambre #}
+                    <div class="options" id='options-{{ chambre.Id }}'>
+
+                        <h6>Options: </h6>
+
+                        <option value="vue-mer">Vue sur mer : {{chambre.vueSurMer ? 'oui' : 'non' }}</option>
+                        <option value="chaines-carte">Chaine à la carte: {{ chambre.ChainesaLaCarte ? 'oui' : 'non '}} </option>
+                        <option value="climatisation">Climatisation : {{ chambre.climatisation ? 'oui' : 'non' }} </option>
+                        <option value="tv-ecran-plat">Télévision à écran plat : {{ chambre.televisionaEcranPlat ? 'oui' : 'non' }}</option>
+                        <option value="telephone">Téléphone : {{ chambre.telephone ? 'oui' : 'non'}} </option>
+                        <option value="chaines-satellite">Chaînes satellite: {{ chambre.chainesSatellite ? 'oui' : 'non'}} </option>
+                        <option value="chaines-cable">Chaînes du câble : {{ chambre.chainesSatellite ? 'oui' : 'non'}} </option>
+                        <option value="coffre-fort">Coffre-fort : {{ chambre.CoffreFort ? 'oui' : 'non'}} </option>
+                        <option value="materiel-repassage">Matériel de repassage : {{ chambre.MaterielDeRepassage ? 'oui' : 'non'}} </option>
+                        <option value="wifi-gratuit">Wi-Fi Gratuit : {{ chambre.WiFiGratuit ? 'oui' : 'non'}} </option>
+
+                    </div> 
+            </ul>
+
+        </div>
+
+        {% else %}
+
+        <h6 colspan="5" class="text-center" style="color:red">Veuillez-nous excuser, toutes nos chambres Junior sont réservées 🚫</h6>
+
+        {% endfor %}
+
+    </ul>
+
+</div>
+
+<script src="{{asset('assets/js/affichageDetailsChambre.js')}}"></script>
+
+{% endblock %}

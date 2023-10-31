@@ -1,0 +1,37 @@
+*{
+    list-style: none;
+}
+
+.blocTable{
+    
+    display: flex;
+    justify-content: center;
+}
+
+.tableAnnuler{
+
+    width: 30%;
+    margin-top: 80px;
+    margin-bottom: 50px;
+    padding: 50px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.tableAnnuler ul li:first-child {
+    font-weight: bold;
+}
+
+
+/* selectionne le 1er ul */
+.tableAnnuler ul:first-of-type {
+    margin-top: 50px;
+}
+
+
+/* selectionne le dernier ul */
+.tableAnnuler ul:last-of-type {
+    margin-bottom: 50px;
+}
+
+

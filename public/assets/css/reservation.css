@@ -1,0 +1,129 @@
+*{
+    list-style: none;
+
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
+.conteneur {
+
+    /* border: solid black 2px; */
+    display:flex;
+    justify-content: space-evenly;
+    padding: 50px;
+    margin-bottom: 50px;
+}
+
+.reservationChoix {
+
+    display:flex;
+    justify-content: center;
+    margin-top: 50px;
+    border-bottom:solid #E0B973 2px;
+}
+
+.mareservation {
+
+    border-right: solid #E0B973 2px;
+    border-bottom: solid #E0B973 3px;
+    padding:50px;
+    width: 50%;
+    text-align: center;
+
+}
+
+.mesreservations {
+
+    border-left: solid #E0B973 2px;
+    border-bottom: solid #E0B973 3px;
+    padding:50px;
+    width: 50%;
+    text-align: center;
+
+}
+
+.blocFormulaire {
+
+    /* border:solid black 3px; */
+    text-align: center;
+    width:50%;
+    height: auto;
+    margin: 60px;
+    
+}
+
+.infoschambre{
+
+border: solid black 3px;
+border-radius: 20px;
+margin-bottom: 10px;
+padding: 10px;
+
+}
+
+.formReservation{
+
+    border: solid black 3px;
+    border-radius: 20px;
+    padding: 50px;
+}
+
+.montantTotal{
+
+    border: solid #E0B973 3px;
+    background-color: #E0B973;
+    text-align: right;
+    padding: 50px;
+    margin-bottom: 40px;
+}
+
+.blocButton{
+
+    /* border: solid yellow 2px; */
+    display: flex;
+    justify-content: space-between;
+    padding:40px;
+}
+
+
+.blocInfos {
+
+    display: block;
+    justify-content: space-between;
+    width:50%;
+    height:1000px;
+    margin: 60px;
+}
+
+.infosUser {
+
+    display:flex;
+    justify-content:left;
+    border: solid black 3px;
+    border-radius: 20px;
+    width:100%;
+    height: 45%;
+    padding:50px;
+}
+
+.espace {
+
+    height: 10%;
+}
+
+.infosService {
+
+    display:flex;
+    justify-content:left;
+    border: solid black 3px;
+    border-radius: 20px;
+    width:100%;
+    height: 45%;
+    padding:50px;
+}
+
+

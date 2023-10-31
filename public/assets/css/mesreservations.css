@@ -1,0 +1,80 @@
+*{
+    list-style: none;
+
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+#titreReservation{
+
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.reservationChoix {
+
+    display:flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    border-bottom:solid #E0B973 2px;
+}
+
+.mareservation {
+
+    border-right: solid #E0B973 2px;
+    border-bottom: solid #E0B973 3px;
+    padding:50px;
+    width: 50%;
+    text-align: center;
+
+}
+
+.mesreservations {
+
+    
+    border-left: solid #E0B973 2px;
+    border-bottom: solid #E0B973 3px;
+    padding:50px;
+    width: 50%;
+    text-align: center;
+
+}
+
+.conteneur {
+
+    display:flex;
+    justify-content: center;
+    padding: 50px;
+    margin-bottom: 50px;
+}
+
+
+table{
+
+    border: solid black 4px;
+}
+
+th {
+
+    border: solid white 3px;
+    padding:50px;
+    background-color: black;
+    color: white;
+
+}
+
+tr{
+
+    border: solid black 3px;
+    padding:50px;
+}
+
+td{
+
+    padding : 50px;
+}
+

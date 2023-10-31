@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paiement{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="/assets/css/paiement.css">
+{% endblock %}
+
+
+{% block body %}
+
+<body>
+
+    <div class="blocpaiement">
+
+        <div class="infosrecap">
+
+            <div class="container_infosrecap">
+
+                <h2 id="titreRecap">Récapitulatif de réservation</h2>
+
+                {% for reservation in reservations %}
+                <li><b>Reservation n° :</b> {{ reservation.id }}</li>
+                <li><b>Date de réservation :</b> {{ reservation.DateReservation|date('d-m-y') }}</li>
+                <li><b>Date d'entrée :</b> {{ reservation.DateEntree|date('d-m-y') }}</li>
+                <li><b>Date de sortie :</b> {{ reservation.DateSortie|date('d-m-y') }}</li>
+                <li><b>Chambre n° :</b> {{ reservation.chambre.id }}</li>
+                <li><b>Tarif/nuit :</b> {{ reservation.chambre.tarif }} €</li>
+
+            <div class="montantTotal">
+
+                <h4><b>TOTAL:  {{ nombreJours * reservation.chambre.tarif }} €</b></h4>
+                {# autre methode pour calculer le nombre de jour entre deux date directement sur le twig #}
+                {# {% set dateDiff = reservation.DateSortie|date('U') - reservation.DateEntree|date('U') %}
+                {% set nbJours = dateDiff / (60 * 60 * 24) %}
+                <li><b>Nombre de jours :</b> {{ nbJours }} </li> #}
+
+            </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        <div class="container">
+
+            <h2 id="titrePaiement">Paiement par carte bancaire</h2>
+
+            {{form_start(form)}}
+
+            {{ form_row(form.name, {'label': 'Nom Prénom:'}) }}
+            {{ form_row(form.card_number, {'label': 'N° de carte:'}) }}
+            {{ form_row(form.date_expiration, {'label': 'Date d\'expiration:', 'attr': {'placeholder': 'MM/YY'}}) }}
+            {{ form_row(form.CVV, {'label': 'CVV:'}) }}
+
+            <div class="bouton">
+                <button type="submit">Payer</button>
+            </div>
+
+            {{ form_end(form) }}
+
+            <h4 id="titreMethodePaiement">Autres méthodes de paiement</h4>
+
+            <div class="payment-options">
+
+                <a href="https://www.paypal.com" target="_blank" id="lienpaiement"><img src="/img/Paypal-logo.png"
+                        alt="PayPal" style="width: 100px; height: auto;"></a>
+                <a href="https://www.mastercard.com" target="_blank" id="lienpaiement"><img
+                        src="/img/MasterCard_Logo.svg.webp" alt="MasterCard" style="width: 100px; height: auto;"></a>
+                <a href="https://www.visa.com" target="_blank" id="lienpaiement"><img src="/img/Old_Visa_Logo.svg.png"
+                        alt="Visa" style="width: 100px; height: auto;"></a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="{{asset('assets/js/paiement.js')}}"></script>
+
+</body>
+
+{% endblock %}

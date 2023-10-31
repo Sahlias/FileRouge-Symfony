@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home VICE CITY{% endblock %}
+
+
+
+{% block body %}
+
+{% block stylesheets %}
+{{ parent() }}
+<link rel="stylesheet" href="{{ asset('assets/css/card.css')}}">
+<link rel="stylesheet" href="{{ asset('assets/css/room.css')}}">
+<link rel="stylesheet" href="{{ asset('assets/css/histoireVCH.css')}}">
+<link rel="stylesheet" href="{{ asset('assets/css/localisationVCH.css')}}">
+
+{% endblock %}
+
+
+{% include ('home/card.html.twig') %}
+{% include ('home/room.html.twig')%}
+
+
+
+
+{% endblock %}

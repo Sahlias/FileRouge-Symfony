@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+ 
+{% block title %}Chambres occupées{% endblock %}
+
+{% block body %}
+<style>
+
+ h1 {
+        font-size: 24px;
+        color: darkblue;
+        font-weight: bold;
+        font-family: Arial, sans-serif;
+    }
+
+
+</style>
+<h1>Liste des Chambres occupées</h1>
+ 
+<p style="font-size: 20px; color: darkblue; font-weight: bold; font-family: Arial, sans-serif;">Nombre de chambres
+    occupées : {{ nbrChambre }} </p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Numéro de la chambre</th>
+            <th scope="col">Tarif</th>
+            <th scope="col">État</th>
+            <th scope="col">User</th>
+            <th scope="col">Email</th>
+            <th scope="col">Téléphone</th>
+
+            <th scope="col">Dates de réservation</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            {% for chambre in FullRoom %}
+            <th scope="row">{{ chambre.id }}</th>
+            <td>{{ chambre.tarif }} euros</td>
+            <td>{{ chambre.etat ? 'libre' : 'occupée' }}</td>
+ 
+           
+        <td>
+            
+            {% for reservationChambre in chambre.reservationChambres %}
+            {{ reservationChambre.reservation.user.nom }} {{ reservationChambre.reservation.user.prenom }}<br>
+            {% endfor %}
+         
+        </td>
+
+        <td>
+            {% for reservationChambre in chambre.reservationChambres %}
+            {{ reservationChambre.reservation.user.email }}<br>
+            {% endfor %}
+        </td>
+        
+        <td>
+            {% for reservationChambre in chambre.reservationChambres %}
+            {{ reservationChambre.reservation.user.telephone }}<br>
+            {% endfor %}
+        </td>
+ 
+        <td>
+          
+
+            {% for reservationChambre in chambre.reservationChambres %}
+            {{ reservationChambre.reservation.dateEntree|date('Y-m-d') }} - {{
+            reservationChambre.reservation.dateSortie|date('Y-m-d') }}<br>
+            {% endfor %}
+ 
+           
+        </td>
+ 
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+

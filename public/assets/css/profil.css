@@ -1,0 +1,82 @@
+
+* {
+    list-style: none;
+}
+
+/* 
+.btn-black {
+    background-color: #000000;
+    color: #E0B973;
+} */
+
+.btn-custom {
+    background-color: #E0B973;
+    color: black;
+}
+
+/* .btn-black:hover {
+    background-color: #333333;
+} */
+
+.btn-custom:hover {
+    background-color: #D8A53E;
+}
+
+.conteneur {
+
+    display: flex;
+    justify-content: center;
+}
+
+.bloc-profil{
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 150px;
+    width: 50%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.en-tete {
+
+    border-bottom: solid lightgray 2px;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    background-color: rgb(245, 244, 244);
+}
+
+.user-infos {
+
+background-color: #fff;
+padding:50px;
+
+}
+
+.actions {
+    
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+
+.photo-profil {
+
+    border: solid lightgray 2px;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;  /* Masque tout contenu dépassant de la div */
+}
+
+.photo-profil img {
+    width: 100%; 
+    height: auto;
+}
+
+.user-infos ul li:first-child {
+    font-weight: bold;
+}
+

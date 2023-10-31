@@ -1,0 +1,111 @@
+* {
+
+    list-style: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fffdfd;
+}
+
+.blocpaiement {
+
+
+    display: flex;
+    justify-content: space-around;
+    margin: 100px;
+    padding: 50px;
+
+}
+
+.infosrecap {
+    
+    padding: 10px;
+    margin: auto;
+}
+
+.container_infosrecap {
+
+    max-width: fit-content;
+    margin: auto;
+    margin-bottom: 50px;
+    height: 40%;
+    padding: 50px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.montantTotal{
+
+    border-top: solid black 2px;
+    text-align: right;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.container {
+
+    max-width: fit-content;
+    margin: auto;
+    padding: 50px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.bouton {
+
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+}
+
+.payment-options {
+    display: flex;
+    justify-content: center;
+}
+
+#lienpaiement {
+    margin: 20px;
+}
+
+#titreRecap, #titrePaiement {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #333;
+    
+}
+
+#titreMethodePaiement {
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}

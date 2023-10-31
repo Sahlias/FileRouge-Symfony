@@ -1,0 +1,11 @@
+twig:
+    default_path: '%kernel.project_dir%/templates'
+    form_themes: ['bootstrap_5_layout.html.twig']
+    debug: '%kernel.debug%'
+    strict_variables: '%kernel.debug%'
+    # globals:
+    #     locale: '%app_locales%' # on récupère le app_locales dans le fichier services.yaml -> parameters
+
+when@test:
+    twig:
+        strict_variables: true

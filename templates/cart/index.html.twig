@@ -1,0 +1,155 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reservation{% endblock %}
+
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="/assets/css/reservation.css">
+{% endblock %}
+
+
+{% block body %}
+
+<div class="reservationChoix">
+
+    <div class="mareservation">
+        <h2><a href="{{ path('reservation') }}">Votre selection</a></h2>
+    </div>
+
+    <div class="mesreservations">
+        <h2><a href="{{ path('app_reservation_index') }}">Mes reservations</h2></a>
+    </div>
+
+</div>
+
+<div class="conteneur">
+
+
+    {% for infoschambre in dataPanier %}
+
+    <div class="blocInfos">
+
+        <div class="infosUser">
+
+            <div class="blocTexte">
+
+                <ul>
+                    <h2>INFORMATIONS CLIENT</h2>
+                    <br>
+                    <br>
+
+                    <li>
+                        <h4>Nom</h4>
+                    </li>
+                    <li>{{ app.user.prenom }}</li>
+                    <li>
+                        <h4>Prenom</h4>
+                    </li>
+                    <li>{{ app.user.nom }}</li>
+                    <li>
+                        <h4>Adresse e-mail</h4>
+                    </li>
+                    <li>{{ app.user.email}}</li>
+                    <li>
+                        <h4>Numéro de téléphone</h4>
+                    </li>
+                    <li>{{ app.user.telephone}}</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class='espace'></div>
+
+        <div class="infosService">
+
+            <div class="blocTexte">
+
+                <ul>
+                    <h4>Frais annulation</h4>
+
+                    <li>20% du montant total</li>
+                    <br>
+                    <br>
+                    <li>
+                        <h4>Service gratuit fournit</h4>
+                    </li>
+                    <li>Nettoyage chambre 7j/7</li>
+                    <li>Petit déjeuner</li>
+                    <li>Salle de sport</li>
+                    <li>Piscine</li>
+                    <li>SPA</li>
+                    <li>Pressing</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class='blocFormulaire'>
+
+        <div class="infoschambre">
+            <h4>Recaptitulatif des informations de la chambre</h4><br>
+
+            <ul>
+                <li>Chambre n° {{infoschambre.chambre.id}}</li>
+                <li>{{infoschambre.chambre.libelle}}</li>
+                <li>{{infoschambre.chambre.superficie}}</li>
+                <li id="tarif">{{infoschambre.chambre.tarif}} €/nuit</li>
+            </ul>
+        </div>
+
+        <div class="formReservation">
+
+            {{form_start(form)}}
+
+            <h4>Date de reservation: {{datereservation|date('d-m-Y')}} </h4>
+            <br>
+            <br>
+
+            {{form_label(form.DateEntree, 'Date d\'entrée') }}
+            {{form_widget(form.DateEntree) }}
+            {{ form_errors(form.DateEntree) }}
+
+            {{form_label(form.DateSortie, 'Date de sortie') }}
+            {{form_widget(form.DateSortie) }}
+            {{ form_errors(form.DateSortie) }}
+
+            <p id="jours" style="color: goldenrod"></p>
+
+        </div>
+
+        <div class='espace'></div>
+
+        <div class="montantTotal">
+
+            <h4>MONTANT TOTAL TTC: </h4>
+
+            <h5 id="total"></h5>
+
+        </div>
+
+        <div class="blocButton">
+            <button type="submit" class="btn btn-outline-success"><b>Confirmer votre selection</b></button>
+            <a href="{{ path('reservation_delete', {'id': infoschambre.chambre.id}) }}"
+                class="btn btn-outline-danger"><b>Vider ma reservation</b></a>
+        </div>
+
+        {{form_end(form)}}
+
+    </div>
+
+    {% else %}
+
+    <h2 colspan="5" class="text-center">Votre panier est vide</h2>
+
+    {% endfor %}
+
+</div>
+
+{# {{dump()}} #}
+
+<script src="{{asset('assets/js/affichageReservation.js')}}"></script>
+
+{% endblock %}

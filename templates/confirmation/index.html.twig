@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Confirmation de Réservation{% endblock %}
+
+
+{% block stylesheets %}
+<link rel="stylesheet" href="/assets/css/confirmation.css">
+{% endblock %}
+
+
+{% block body %}
+
+
+    <div class="confirmationPage">
+        
+        <div class="text-center" id ='textConfirmation'>
+
+            <h1 style="font-family: 'Arial', sans-serif; font-size: 36px; color: #333;">C’EST CONFIRMÉ !</h1>
+
+            {# {% for reservation in reservations %}  si on veut tuliser la boucle alors on affiche cette variable -> {{reservation.id}}  #}
+            <h2 style=" font-size: 24px; color: #007BFF;">Votre réservation n ° {{id_reservation}} a bien été enregistrée <span style="font-size: 32px; color: #28A745;">✅</span></h2>
+            {# {% endfor %}  #}
+
+            <p style="font-size: 18px; color: #555;" id="pconfirmation">Vous recevrez prochainement le récapitulatif de votre réservation sur votre adresse e-mail.</p>
+        
+            <a href="{{ path('app_pdf_generator') }}" class="btn btn-primary" style="font-size: 20px; background-color: #007BFF; border-color: #007BFF;" target = "_blank"><small>Télécharger votre récapitulatif</small></a>
+
+            <p id="pconfirmation">Nous vous remercions pour votre confiance et attendons avec impatience votre venue.</p>
+
+            {# <img src="/img/VCH-removebg-preview_1.png" alt="logoViceCity"> #}
+
+            <p id="pconfirmation"><a class="" href="{{ path('home') }}">Retour à la page d'accueil</a></p>
+
+        </div>
+
+    </div>
+
+{% endblock %}

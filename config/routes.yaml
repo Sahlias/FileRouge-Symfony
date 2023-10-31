@@ -1,0 +1,25 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+votre_route_pour_traiter_le_formulaire:
+    path: '/traiter-le-formulaire'
+    controller: App\Controller\ChiffreDaffairesController::traiterLeFormulaire
+    methods: ['POST']
+
+
+kernel:
+    resource: App\Kernel
+    type: attribute
+
+
+app_translation:
+    path: /translation/{_locale}
+    controller: 'App\Controller\TranslationController::changeLocale'
+    # requirements:
+    #     _locale: '%supported_locales%'  # récupération du supported_locales dans le fichier services.yaml
+
+    
+

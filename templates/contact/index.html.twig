@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+    <style>
+    
+        /* Styles pour le corps de la page */
+        body {
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Styles pour l'en-tête */
+        h1 {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            margin: 0;
+        }
+
+        /* Styles pour le formulaire */
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 24px;
+            background-color:black;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            margin: 100px auto;
+            border: 7px solid #E0B973;
+        }
+
+        /* Styles pour les champs du formulaire */
+        form label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: bold;
+            color:white;
+        }
+
+        form input[type="text"],
+        form input[type="email"],
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+
+        /* Style pour le bouton du formulaire */
+        form button[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            background-color:#E0B973;
+            cursor: pointer;
+        }
+
+        /* Style pour le bouton du formulaire au survol */
+        form button[type="submit"]:hover {
+            background-color: #E0B950;
+            color:black;
+        }
+    </style>
+
+<h1>Formulaire de Contact</h1>
+
+    <div>
+        {{form(formulaire)}}
+    </div>
+
+{% endblock %}

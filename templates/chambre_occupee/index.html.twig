@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chambres Occupées{% endblock %}
+
+{% block body %}
+ 
+
+<style>
+
+
+    h1 {
+    font-size: 24px;
+    color: black;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+}
+
+
+</style>
+
+
+<h1>L'état de l'Hotel</h1>
+
+<h3>Liste des Chambres occupées</h3>
+
+<p style="font-size: 20px; color: rgba(0, 0, 0, 0.738); font-weight: bold; font-family: Arial, sans-serif;">Nombre de chambres
+    occupées : {{ nbrfullRoom }} </p>
+
+
+<table class="table">
+    <thead style="background-color:rgba(28, 96, 119, 0.585);">
+        <tr style="border: 1px solid black " ;>
+            <th scope="col" style ="color: black; background-color:#E0B973;" >Numéro de la chambre</th>
+            <th scope="col" style ="color: black; background-color:#E0B973;">Numéro de la réservation</th>
+            <th scope="col" style ="color: black; background-color:#E0B973;">Etat</th>
+            <th scope="col" style ="color: black; background-color:#E0B973;">Nom</th>
+            <th scope="col" style ="color: black; background-color:#E0B973;">Prénom</th>
+            <th scope="col" style ="color: black; background-color:#E0B973;">Email</th>
+            <th scope="col" style ="color: black; background-color:#E0B973;">Téléphone</th>
+            <th scope="col" style ="color: black; background-color:#E0B973;">Date arrivée</th>
+            <th scope="col" style ="color: black; background-color:#E0B973;">Date départ</th>
+        </tr>
+    </thead>
+
+    <tbody>
+    {% for chambre in ChambreFull %}
+    <tr>
+        <td>{{ chambre.id }}</td>
+        <td>
+            {% for reservation in chambre.chambre %}
+            {{ reservation.id }}<br>
+            {% endfor %}
+        </td>
+        <td>
+            {{ chambre.etat ? 'Libre' : 'Occupée' }}</td>
+        <td>
+            {% for reservation in chambre.chambre %}
+            {{ reservation.user.nom }}<br>
+            {% endfor %}
+        </td>
+        <td>
+            {% for reservation in chambre.chambre %}
+            {{ reservation.user.prenom }}<br>
+            {% endfor %}
+        </td>
+        <td>
+            {% for reservation in chambre.chambre %}
+            {{ reservation.user.email }}<br>
+            {% endfor %}
+        </td>
+        <td>
+            {% for reservation in chambre.chambre %}
+            {{ reservation.user.telephone }}<br>
+            {% endfor %}
+        </td>
+        <td>
+            {% for reservation in chambre.chambre %}
+            {{ reservation.DateEntree|date('Y-m-d') }}<br>
+            {% endfor %}
+        </td>
+        <td>
+            {% for reservation in chambre.chambre %}
+            {{ reservation.DateSortie|date('Y-m-d') }}<br>
+            {% endfor %}
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

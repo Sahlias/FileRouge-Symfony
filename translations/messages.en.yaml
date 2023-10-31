@@ -1,0 +1,38 @@
+menu:
+    choose_language: 'Choose Language'
+    english: 'EN'
+    french: 'FR'
+
+welcome:
+    title1: 'WELCOME TO'
+    title2: 'VICE CITY'
+    title3: 'HOTEL'
+    description: 'Book your stay and experience redefined luxury at the most affordable rates.'
+
+navbar:
+    connexion: 'Log in'
+    contact: 'Contact us'
+    hebergement : 'Hosting'
+    chambre1 : 'Room Double Deluxe'
+    chambre2 : 'Room Double Superior'
+    chambre3 : 'Suite Junior'
+    visite : 'Visit the hotel'
+    reservation: 'My bookings'
+    admin: 'Hello Admin'
+    user: 'Hello'
+    profil: 'Manage my profile'
+    deconnexion: 'Log out'
+
+
+creation:
+    titre: 'Création of Vice City Hotel'
+    texte: "A luxury hotel born from the boldness and vision of its eminent founders: Akaza, Batman, Elcroco, and Karim. Founded in 2023, this establishment embodies the perfect blend of contemporary elegance and timeless glamour. The unique influences of each founder are reflected in every corner, creating a distinctive atmosphere that redefines the hotel experience. Whether drawn to Akaza's avant-garde style, Batman's sophistication, Elcroco's eccentricity, or Karim's warm hospitality, Vice City Hotel offers an unforgettable escape where luxury meets individuality. Every detail, from architecture to cuisine, is a celebration of innovation and refinement, promising each guest an exceptional experience in the heart of the city. Welcome to the exclusive world of Vice City Hotel, where comfort, style, and personality come together to create an unparalleled destination."
+
+caroussel:
+    titre1: 'Our rooms are designed to transport you to an environment made for leisure. Forget about the everyday home life and find a private paradise for yourself.'
+    titre2: 'All our room types include complimentary breakfast.'
+
+footer:
+    titre1: 'Our hotel combines timeless elegance, modern amenities, and exceptional service to create a welcoming and soothing atmosphere.'
+    copyright: '© 2023 Vice City Hotel. All rights reserved.'
+

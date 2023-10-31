@@ -1,0 +1,37 @@
+.card-img {
+    height: 700px;
+}
+
+.container {
+    font-size: larger;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 150px;
+    margin-left: 100px;
+    /* background-color:gold; */
+}
+
+.card-titleo {
+    /* background-color: blue; */
+    font-size: 40px;
+}
+
+.card-title1 {
+    /* background-color: aqua; */
+    margin-left: 100px;
+    font-size: 80px;
+}
+
+.card-title2 {
+    /* background-color:blueviolet; */
+    margin-left: 200px;
+    font-size: 40px;
+}
+
+.card-text1 {
+    /* background-color: red; */
+    font-size: 30px;
+    margin-top: 100px;
+    margin-left: 100px;
+}

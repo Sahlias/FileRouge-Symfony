@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User{% endblock %}
+
+{% block stylesheets %}
+  <style>
+
+h1 {
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+    text-align: left;
+}
+
+.button-container {
+    text-align: center;
+}
+
+a.button {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+a.button:hover {
+    background-color: #333;
+}
+
+a.button.button-black {
+    background-color: #000;
+}
+
+a.button.button-black:hover {
+    background-color: #E0B973; 
+}
+
+a.button.button-yellow {
+    background-color: #E0B973;
+}
+
+a.button.button-yellow:hover {
+    background-color: black; 
+}
+
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    <h1>User</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Email</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ user.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ user.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ user.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ user.telephone }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+   <a class="button button-black" href="{{ path('app_user_index') }}">Back to List</a>
+    <a class="button button-yellow" href="{{ path('app_user_edit', {'id': user.id}) }}">Edit</a>
+{% endblock %}

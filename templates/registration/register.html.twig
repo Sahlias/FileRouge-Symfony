@@ -1,0 +1,256 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}inscription{% endblock %}
+
+
+{% block body %}
+
+<style>
+    .blocFormulaireInscription {
+        display: flex;
+        padding: 100px;
+        justify-content: center;
+    
+    }
+
+    .blocInscriptionConnexion {
+
+
+        display: flex;
+        padding: 20px;
+        border: solid black 2px;
+        background-color: black;
+    }
+
+    .formulaire_Inscription {
+        display: inline-block;
+        padding: 40px;
+        border-radius: 30px;
+        border: solid #E0B973 10px;
+        background-color: black;
+        width: 50%;
+    }
+
+    .form {
+        display: inline-block;
+        padding: 50px;
+        color: white;
+        background-color: black;
+        border: solid black 2px;
+        width: 100%;
+    }
+
+    .blocInscription {
+        display: flex;
+        justify-content: center;
+        color: white;
+        padding: 30px;
+        border-bottom: solid #E0B973 3px;
+        border-right: solid #E0B973 3px;
+        width: 50%;
+    }
+
+    .blocConnexion {
+        display: flex;
+        justify-content: center;
+        color: white;
+        padding: 30px;
+        border-bottom: solid #E0B973 3px;
+        border-left: solid #E0B973 3px;
+        width: 50%;
+    }
+
+    #cgv {
+
+        margin: 30px;
+    }
+
+
+    .boutonInscription {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+    }
+
+    #btnInscription {
+
+        border: solid #E0B973;
+        color: black;
+        font-weight: bold;
+        background-color: #E0B973;
+        border-radius: 5px;
+        padding: 10px;
+        width: 50%;
+        
+    }
+</style>
+
+{# 
+
+<div class="blocFormulaireInscription">
+
+    <div class='formulaire_Inscription'>
+
+
+        <div class="blocInscriptionConnexion">
+
+            <div class="blocInscription">
+
+                <h4><a class="nav-link active" aria-current="page" href="{{ path('app_register') }}">INSCRIPTION</a>
+                </h4>
+
+            </div>
+
+            <div class="blocConnexion">
+
+                <h4><a class="nav-link active" aria-current="page" href="{{ path('app_login') }}">CONNEXION</a></h4>
+
+            </div>
+
+        </div>
+
+        <div class='form'>
+
+            {{ form_start(registrationForm) }}
+
+            {# {{ form_label(...) }}: 1er argument, génère une balise <label> pour le champ du formulaire. #}
+            {# null: deuxieme argument, text: libellé du champs #}
+            {# 'label_attr': souhaite ajouter des attributs au label du formulaire #}
+            {# 'class' : 'form-label': , la classe CSS 'form-label' sera ajoutée à la balise <label> pour appliquer le style CSS #}
+            {# {{form_label(registrationForm.nom) }} #}
+            {# {{ form_widget(...) }} : affiche le champs du formulaire comme un champ de texte ou une zone de texte #}
+            {# 'attr': souhaite ajouter des attributs au champs du formulaire #}
+            {# 'class' : 'form-control': , la classe CSS 'form-control' sera ajoutée au champs du formulaire pour appliquer le style CSS #}
+            {# {{form_widget(registrationForm.nom, {'attr': {'placeholder': 'Votre contenu'}})}}
+            {{ form_errors(registrationForm.nom) }} #}
+{# 
+
+            {{form_label(registrationForm.prenom) }}
+            {{form_widget(registrationForm.prenom, {'attr': {'placeholder': 'Votre contenu ici'}}) }}
+            {{ form_errors(registrationForm.prenom) }}
+                
+            {{form_label(registrationForm.date_de_naissance) }}
+            {{form_widget(registrationForm.date_de_naissance, {'attr': {'placeholder':'Votre contenu ici'}}) }}
+            {{ form_errors(registrationForm.date_de_naissance) }}
+                
+            {{form_label(registrationForm.email) }}
+            {{form_widget(registrationForm.email, {'attr': {'placeholder': 'Votre contenu ici'}}) }}
+            {{ form_errors(registrationForm.email) }}
+
+            {{form_label(registrationForm.adresse) }}
+            {{form_widget(registrationForm.adresse, {'attr': {'placeholder': 'Votre contenu ici'}}) }}
+            {{ form_errors(registrationForm.adresse) }}
+
+            {{form_label(registrationForm.telephone) }}
+            {{form_widget(registrationForm.telephone, {'attr': {'placeholder': 'Votre contenu ici'}}) }}
+            {{ form_errors(registrationForm.telephone) }}
+                
+
+            {{form_label(registrationForm.plainPassword, 'Mot de passe',) }}
+            {{form_widget(registrationForm.plainPassword, {'attr': {'placeholder': 'Votre contenu ici' }}) }}
+            {{ form_errors(registrationForm.plainPassword) }}
+
+            <div class='form-check' id="cgv">
+                {{form_label(registrationForm.Conditions, {'label_attr': {'class':'form-check-label'}}) }}
+                {{form_widget(registrationForm.Conditions, {'attr': {'class':'form-check-input'}}) }}
+            </div>
+
+            <div class="boutonInscription">
+                <button type="submit" id="btnInscription">INSCRIPTION</button>
+            </div>
+
+            {{ form_end(registrationForm) }}
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}  #}
+
+
+
+<div class="blocFormulaireInscription">
+
+    <div class='formulaire_Inscription'>
+
+
+        <div class="blocInscriptionConnexion">
+
+            <div class="blocInscription">
+
+                <h4><a class="nav-link active" aria-current="page" href="{{ path('app_register') }}">INSCRIPTION</a>
+                </h4>
+
+            </div>
+
+            <div class="blocConnexion">
+
+                <h4><a class="nav-link active" aria-current="page" href="{{ path('app_login') }}">CONNEXION</a></h4>
+
+            </div>
+
+        </div>
+
+        <div class='form'>
+
+            {{ form_start(registrationForm) }}
+
+            {# {{ form_label(...) }}: 1er argument, génère une balise <label> pour le champ du formulaire. #}
+            {# null: deuxieme argument, text: libellé du champs #}
+            {# 'label_attr': souhaite ajouter des attributs au label du formulaire #}
+            {# 'class' : 'form-label': , la classe CSS 'form-label' sera ajoutée à la balise <label> pour appliquer le style CSS #}
+            {{form_label(registrationForm.nom) }}
+            {# {{ form_widget(...) }} : affiche le champs du formulaire comme un champ de texte ou une zone de texte #}
+            {# 'attr': souhaite ajouter des attributs au champs du formulaire #}
+            {# 'class' : 'form-control': , la classe CSS 'form-control' sera ajoutée au champs du formulaire pour appliquer le style CSS #}
+            {{form_widget(registrationForm.nom, {'attr': {'placeholder': 'Votre contenu'}})}}
+            {{ form_errors(registrationForm.nom) }}
+
+
+            {{form_label(registrationForm.prenom) }}
+            {{form_widget(registrationForm.prenom, {'attr': {'placeholder': 'Votre contenu ici'}}) }}
+            {{ form_errors(registrationForm.prenom) }}
+                
+            {{form_label(registrationForm.date_de_naissance) }}
+            {{form_widget(registrationForm.date_de_naissance, {'attr': {'placeholder':'Votre contenu ici'}}) }}
+            {{ form_errors(registrationForm.date_de_naissance) }}
+                
+            {{form_label(registrationForm.email) }}
+            {{form_widget(registrationForm.email, {'attr': {'placeholder': 'Votre contenu ici'}}) }}
+            {{ form_errors(registrationForm.email) }}
+
+            {{form_label(registrationForm.adresse) }}
+            {{form_widget(registrationForm.adresse, {'attr': {'placeholder': 'Votre contenu ici'}}) }}
+            {{ form_errors(registrationForm.adresse) }}
+            <ul id="liste_adresse"></ul>
+
+
+            {{form_label(registrationForm.telephone) }}
+            {{form_widget(registrationForm.telephone, {'attr': {'placeholder': 'Votre contenu ici'}}) }}
+            {{ form_errors(registrationForm.telephone) }}
+                
+            {{form_label(registrationForm.password, 'Mot de passe',) }}
+            {{form_widget(registrationForm.password, {'attr': {'placeholder': 'Votre contenu ici' }}) }}
+            {{ form_errors(registrationForm.password) }}
+
+            <div class='form-check' id="cgv">
+                {{form_label(registrationForm.Conditions, {'label_attr': {'class':'form-check-label'}}) }}
+                {{form_widget(registrationForm.Conditions, {'attr': {'class':'form-check-input'}}) }}
+            </div>
+
+            <div class="boutonInscription">
+                <button type="submit" id="btnInscription">INSCRIPTION</button>
+            </div>
+
+            {{ form_end(registrationForm) }}
+        </div>
+
+    </div>
+
+</div>
+
+<script src="{{asset('assets/js/suggestionAdresse.js')}}"></script>
+
+{% endblock %}
+ 
