@@ -28,3 +28,8 @@ L'application de gestion d'hôtel est un système complet pour la gestion effica
 
 ![Screenshot 1](public/img/screendusite.png)
 ![Screenshot 2](public/img/screencapture.png)
+
+# Un grand titre
+## Un titre un peu moins grand
+### Un titre encore moins grand
+
