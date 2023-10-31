@@ -29,4 +29,14 @@ L'application de gestion d'hôtel est un système complet pour la gestion effica
 ![Screenshot 1](public/img/screendusite.png)
 ![Screenshot 2](public/img/screencapture.png)
 
+# Navbar
+[g-navbar id="navbar3" name="navbar3" centering=none brand_text="Brand"]
+    [g-navbar-menu name=menu00 alignment="center" submenu="internal,components"][/g-navbar-menu]
+    [g-navbar-menu name=menu01 icon_type="fontawesome" alignment="right" attributes="class: my-class,rel:my-rel"]
+        [g-link url="https://framasphere.org" icon_type="fontawesome" icon="asterisk"][/g-link]
+        [g-link url="https://framapiaf.org" icon="retweet"][/g-link]
+        [g-link url="https://framagit.org" icon="git"][/g-link]
+    [/g-navbar-menu]
+[/g-navbar]
+
 
