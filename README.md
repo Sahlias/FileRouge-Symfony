@@ -2,7 +2,7 @@
 
 # Gestion d'Hôtel - Application
 
-![Hotel Management](\img\VCH-removebg-preview_1.png)
+![Hotel Management](public/img/VCH-removebg-preview_1.png)
 
 ## Description
 
